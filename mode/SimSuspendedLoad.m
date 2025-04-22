@@ -27,7 +27,7 @@ agent.reference = TIME_VARYING_REFERENCE(agent,{"gen_ref_saddle",{"freq",10,"ori
 agent.controller = HLC_SUSPENDED_LOAD(agent,Controller_HL_Suspended_Load(dt,agent));
 agent.controller.result.input = [(agent.parameter.loadmass*0+agent.parameter.mass)*agent.parameter.gravity;0;0;0];
 % take off landing の設定
-run("ExpBase");
+run("ExpBase");  % 
 
 %%
 % logger.plot({1,"plant.result.state.pL","p"})

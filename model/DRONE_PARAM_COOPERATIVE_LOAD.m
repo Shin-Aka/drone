@@ -35,26 +35,26 @@ classdef DRONE_PARAM_COOPERATIVE_LOAD < PARAMETER_CLASS
                 param.g             = 9.81;
                 %六角柱
                 param.m0            = 1.200;%分割前の牽引物
-                param.J0            = [0.15;0.15;0.25];%分割前牽引物慣性モーメント
+                param.J0            = [0.15;0.15;0.25];%分割前牽引物慣性モーメント　simは適当に設定してる
                 % param.J0            = [0.35;0.47;0.45];%非対称牽引物
                 % param.J0            = [0.2262;0.3434;0.4735];%非対称牽引物
                 %四角柱
                 % param.m0            = 3.900;%分割前の牽引物実験牽引物四角
                 % param.J0            = [2^2*0.1^2;2^2*0.1^2;2*0.02^2]* 3.900/3;%非対称牽引物正方形
 
-                param.rho           = [];%分割前の重心位置から紐がついてるところ前での距離
+                param.rho           = [];%分割前の重心位置から紐がついてるところまでの距離
                 param.li            = 2*ones(N,1);%2*ones(N,1);%紐の長さ
                 param.mi            = 0.800*ones(N,1)';%機体の重さ
                 param.Ji            = repmat([0.082 0.082 0.1377]',1,N);%機体の慣性モーメント
-                param.additional    = []; % プロパティに無いパラメータを追加する場合
+                param.additional    = []; % プロパティに無いパラメータを追加する場合 つかわない
             end
             %% 牽引物
             isRegularHexagon = 0;%正六角柱の牽引物にするか
             if ~isRegularHexagon && isempty(param.rho) %sim
             %*Up, *Downは牽引物の上面と下面を表す   
             %六角形
-                xUp     = [-2 -1.5 0 1.5 1 0];
-                yUp     = [-1 0.5 1 0.5 -0.5 -1];
+                xUp     = [-2 -1.5 0 1.5 1 0]; % 各頂点(x座標
+                yUp     = [-1 0.5 1 0.5 -0.5 -1]; % 各頂点(y座標
                 zUp     = 0.5*ones(1,6);
                 pUp     = [xUp;yUp;zUp];%*0.4;%
 
